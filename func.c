@@ -3,30 +3,27 @@
 
 void Fuc_Add_Newbook(writting Book)    //添加新书(书名、作者、数量、价格)
 {
-    getchar();
+    fflush(stdin);
     book* b = (book*)malloc(sizeof(book));
     printf("请输入新书的名字>");
     scanf("%[^\n]", b->bookname);
+    while (getchar()!='\n');
+
     strcpy(Book[len].bookname, b->bookname);
-    //printf("qwer2\n");
-    getchar();
 
     printf("请输入作者>");
     scanf("%[^\n]", b->writer);
     strcpy(Book[len].writer, b->writer);
-    //printf("qwer3\n");
-    getchar();
     
     printf("请输入单价>");
     scanf("%f", &(Book[len].price));
-    //printf("qwer4\n");
+
     getchar();
     
     Book[len].id = len + 1;
     Book[len].num += 1;
     free(b);
     
-    //printf("len++=%d\n",len);
     printf("\n编号:%d\n书名:%s\n作者:%s\n数量:%d\n价格:%.2f\n\n"
         , Book[len].id, Book[len].bookname, Book[len].writer
         , Book[len].num, Book[len].price);
